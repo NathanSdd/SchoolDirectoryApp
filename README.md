@@ -41,7 +41,6 @@ API endpoint: https://edutots.net/api/school
 
 ## Screenshots
 
-Screenshots of the application will be added here.
 
 ### School List
 
