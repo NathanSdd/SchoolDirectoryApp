@@ -1,0 +1,29 @@
+/* CSS for Schools component */
+.school-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.school-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.school-details {
+    position: sticky;
+    top: 20px;
+}
+
+input.form-control {
+    max-width: 600px;
+    margin-bottom: 24px;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.school-item {
+    margin-bottom: 24px;
+}

@@ -1,0 +1,79 @@
+﻿@page "/schools"
+@rendermode InteractiveServer
+@using SchoolDirectoryApp.Services
+@using SchoolDirectoryApp.Models
+@inject SchoolService SchoolService
+
+<h2>School Directory</h2>
+<p class="text-muted">Browse and search schools.</p>
+
+<input @bind="Search"
+       @bind:event="oninput"
+       class="form-control"
+       placeholder="Search school..." />
+
+@if (schools == null)
+{
+    <p>Loading schools...</p>
+}
+
+@if (error)
+{
+    <p class="text-danger">
+        Unable to retrieve school data.
+    </p>
+}
+
+@if (schools != null)
+{
+    @foreach (var school in schools.Where(s => s.SchoolName.Contains(Search, StringComparison.OrdinalIgnoreCase)))
+{
+    <div class="school-item">
+
+        <SchoolCard School="school"
+                    OnSelect="SelectSchool" />
+
+        @if (selectedSchool?.SchoolId == school.SchoolId)
+        {
+                <SchoolDetails School="selectedSchool"
+                               OnClose="CloseDetails" />
+        }
+
+    </div>
+}
+
+    @if (!schools.Any(s => s.SchoolName.Contains(Search, StringComparison.OrdinalIgnoreCase)))
+    {
+        <p>No schools found.</p>
+    }
+
+}
+
+@code
+{
+    private List<School>? schools;
+    private School? selectedSchool;
+    private string Search = string.Empty;
+    private bool error;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            schools = await SchoolService.GetSchoolsAsync();
+        }
+        catch
+        {
+            error = true;
+        }
+    }
+
+    private void SelectSchool(School school)
+    {
+        selectedSchool = school;
+    }
+    private void CloseDetails()
+    {
+        selectedSchool = null;
+    }
+}

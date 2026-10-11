@@ -1,0 +1,36 @@
+﻿@using SchoolDirectoryApp.Models
+
+@if (School != null)
+{
+    <div class="card shadow-sm mt-3">
+        <div class="card-body">
+            <h4>@School.SchoolName</h4>
+
+            <p><strong>School ID:</strong> @School.SchoolId</p>
+            <p><strong>Address:</strong> @School.Address</p>
+            <p><strong>Phone:</strong> @School.PhoneNo</p>
+            <p><strong>Email:</strong> @School.EmailAddress</p>
+            <p><strong>Proprietor:</strong> @School.ProprietorFullName</p>
+            <p><strong>Head:</strong> @School.HeadFullName</p>
+
+            <button class="btn btn-secondary"
+                    @onclick="CloseDetails">
+                Close Details
+            </button>
+        </div>
+    </div>
+
+}
+
+@code {
+    [Parameter]
+    public School? School { get; set; }
+
+    [Parameter]
+    public EventCallback OnClose { get; set; }
+
+    private async Task CloseDetails()
+    {
+    await OnClose.InvokeAsync();
+    }
+}
