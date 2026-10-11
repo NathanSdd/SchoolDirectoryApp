@@ -45,25 +45,25 @@ Screenshots of the application will be added here.
 
 ### School List
 
-![School List](screenshots/school-list.png)
+![School List](SchoolDirectoryApp/screenshots/school-list.png)
 
 ### Search Results
 
-![Search Results](screenshots/search-results-1.png)
+![Search Results](SchoolDirectoryApp/screenshots/search-results-1.png)
 
-![Search Results](screenshots/search-results-2.png)
+![Search Results](SchoolDirectoryApp/screenshots/search-results-2.png)
 
 
 ### School Details
 
-![School Details](screenshots/school-details.png)
+![School Details](SchoolDirectoryApp/screenshots/school-details.png)
 
 
 ### Error State
 
-![Error State](screenshots/error-state.png)
+![Error State](SchoolDirectoryApp/screenshots/error-state.png)
 
 
 ### Loading State
 
-![Loading State](screenshots/loading-state.png)
+![Loading State](SchoolDirectoryApp/screenshots/loading-state.png)
